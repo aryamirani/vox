@@ -12,8 +12,9 @@
 *.aab
 
 # SNPE SDK binaries (install locally — see snpe-sdk/)
-snpe-sdk/lib/
+snpe-sdk/lib/**/*.so
 snpe-sdk/bin/
+!snpe-sdk/lib/**/.gitkeep
 
 # Converted model artifacts (too large for git)
 models/whisper/*.dlc
