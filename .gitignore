@@ -1,0 +1,26 @@
+*.iml
+.gradle
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+*.apk
+*.ap_
+*.aab
+
+# SNPE SDK binaries (install locally — see snpe-sdk/)
+snpe-sdk/lib/
+snpe-sdk/bin/
+
+# Converted model artifacts (too large for git)
+models/whisper/*.dlc
+models/whisper/*.bin
+models/phi3/*.dlc
+models/phi3/*.bin
+
+# Keystore
+*.jks
+*.keystore

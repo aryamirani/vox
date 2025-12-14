@@ -66,6 +66,41 @@ This system eliminates the need for cloud APIs by chaining local models and comm
 - Local **MQTT Broker** running on your network (e.g., Mosquitto)
 - Basic knowledge of Android development and MQTT protocol
 
+### Repository Layout
+
+```
+vox/
+├── app/                          # Android application module
+│   └── src/main/
+│       ├── java/com/edgeai/vox/
+│       │   ├── audio/            # PCM capture & preprocessing
+│       │   ├── stt/              # Whisper Tiny (SNPE)
+│       │   ├── llm/              # Phi-3-mini (SNPE)
+│       │   ├── mqtt/             # Eclipse Paho MQTT client
+│       │   ├── pipeline/         # Voice → STT → LLM → MQTT orchestration
+│       │   ├── snpe/             # SNPE runtime Kotlin/JNI façade
+│       │   └── ui/               # MainActivity & ViewModel
+│       └── cpp/                  # JNI bridge to SNPE native runtime
+├── models/
+│   ├── whisper/                  # Place whisper_tiny.dlc here (not in repo)
+│   └── phi3/                     # Place phi3_mini_4k_instruct.dlc here
+├── snpe-sdk/                     # Extract Qualcomm SNPE SDK here (not in repo)
+└── scripts/
+    ├── convert_models.sh         # Model conversion workflow reference
+    └── deploy_models.sh          # adb push helper for on-device models
+```
+
+### Build & Run
+
+1. Clone the repository and open it in Android Studio
+2. Extract the [Qualcomm SNPE SDK](https://developer.qualcomm.com/software/qualcomm-neural-processing-sdk) into `snpe-sdk/`
+3. Convert and place model artifacts (see `scripts/convert_models.sh`)
+4. Deploy models to device: `./scripts/deploy_models.sh`
+5. Build the `app` module and install on a Snapdragon device
+6. Enter your MQTT broker URI, tap **Connect**, then tap the mic button to speak a command
+
+> **Note:** Without the SNPE SDK and converted `.dlc` models, the app compiles and runs using native stub inference that returns demo output — useful for verifying the MQTT pipeline.
+
 ---
 
 ## 📝 Example Usage

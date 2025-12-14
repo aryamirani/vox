@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vox</string>
+    <string name="status_idle">Ready — tap the mic to speak</string>
+    <string name="status_listening">Listening…</string>
+    <string name="status_transcribing">Transcribing with Whisper…</string>
+    <string name="status_interpreting">Interpreting with Phi-3…</string>
+    <string name="status_publishing">Publishing MQTT commands…</string>
+    <string name="status_connected">MQTT connected</string>
+    <string name="status_disconnected">MQTT disconnected</string>
+    <string name="mic_start">Start voice command</string>
+    <string name="mic_stop">Stop recording</string>
+    <string name="btn_connect">Connect</string>
+    <string name="btn_disconnect">Disconnect</string>
+    <string name="hint_broker">tcp://192.168.1.100:1883</string>
+    <string name="hint_client_id">Client ID (optional)</string>
+    <string name="label_transcript">Transcript</string>
+    <string name="label_llm_output">LLM output</string>
+    <string name="label_logs">Pipeline logs</string>
+    <string name="permission_audio_rationale">Microphone access is required for voice commands.</string>
+    <string name="error_models_missing">SNPE models not found. Place converted .dlc files in models/ and rebuild.</string>
+    <string name="error_snpe_missing">SNPE SDK not installed. Copy the SDK into snpe-sdk/ at the project root.</string>
+</resources>
